@@ -1,2 +1,10 @@
-# PINNs-aplicadas-a-modelo-de-Viroterapia
-Repositorio del Trabajo de Fin de Grado (TFG) centrado en la aplicación de Redes Neuronales Informadas por la Física (PINNs) para resolver el problema directo e inverso en un modelo matemático de viroterapia oncolítica.
+# Análisis de un Modelo Matemático de Viroterapia Oncolítica Basado en Redes Neuronales Informadas por la Física
+
+El cáncer constituye uno de los mayores desafíos de la medicina contemporánea, con más de 20 millones de nuevos diagnósticos en 2022. Frente a las limitaciones de los tratamientos convencionales, la viroterapia oncolítica emerge como alternativa prometedora: los virus oncolíticos destruyen selectivamente células tumorales mediante oncolisis directa, inducen la muerte celular inmunogénica y alteran el microambiente tumoral.
+
+La modelización matemática de esta dinámica se fundamenta en el modelo
+tridimensional de Tian (2011), que describe la interacción entre células tumorales no infectadas, infectadas y viriones libres mediante un sistema de ecuaciones diferenciales ordinarias. Este modelo identifica dos umbrales críticos del *burst size*, o número de viriones liberados con la lisis de una célula tumoral infectada, que delimitan tres regímenes dinámicos: fracaso terapéutico, éxito parcial estable y oscilación periódica sostenida vía bifurcación de Hopf.
+
+Para abordar la estimación de parámetros biológicos a partir de datos clínicos escasos y ruidosos, este trabajo hace uso de las Redes Neuronales Informadas por la Física (PINNs), que integran en la función de pérdida los residuos de las ecuaciones diferenciales como regularizador estructural. 
+
+La metodología se valida progresivamente sobre los modelos Lotka-Volterra y SIR antes de aplicarse al modelo de viroterapia, donde se demuestra la capacidad de la red para mantener trayectorias dinámicamente coherentes frente a la escasez y el ruido en los datos, y se estiman los parámetros cinéticos del sistema mediante una estrategia de complejidad creciente de uno a tres parámetros simultáneos. La robustez del método se evalúa sobre una cohorte de 50 pacientes virtuales con ruido clínico del 5 %, revelando sesgos sistemáticos de magnitud moderada e interpretación estructural clara, con varianza inter-paciente reducida. Los experimentos numéricos se han realizado en *Python* principalmente con *PyTorch*, *SciPy* y *Matplotlib*.
